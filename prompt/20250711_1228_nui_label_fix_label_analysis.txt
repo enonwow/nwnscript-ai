@@ -1,0 +1,36 @@
+UUID: 20250711_1228_nui_label_fix
+Timestamp: 2025-07-11
+
+Analysis: NuiLabel Usage in NWScript (NUI System)
+
+The function NuiLabel expects THREE arguments according to the NWN:EE NUI specification:
+
+json NuiLabel(
+    json jValue,    // Bind:String — the label content or a bind to it
+    json jHAlign,   // Bind:Int — horizontal alignment (e.g., NUI_HALIGN_LEFT)
+    json jVAlign    // Bind:Int — vertical alignment (e.g., NUI_VALIGN_TOP)
+);
+
+Mistake:
+The previous code called:
+    NuiLabel(JsonString("Hello from NUI Label"))
+which caused:
+    ERROR: DECLARATION DOES NOT MATCH PARAMETERS
+
+Reason:
+NuiLabel expects THREE arguments — a JSON string (bind or static text), an integer bind for horizontal alignment, and another for vertical alignment.
+Only one was provided, leading to a signature mismatch.
+
+Correction:
+To properly create a label with centered alignment, the correct call is:
+
+    json jLabel = NuiLabel(
+        JsonString("Hello from NUI Label"),
+        JsonInt(NUI_HALIGN_CENTER),
+        JsonInt(NUI_VALIGN_MIDDLE)
+    );
+
+This version respects the required parameter types and count.
+
+Note:
+Always refer to the exact function signatures in nw_inc_nui.nss or the Lexicon to avoid mismatched declarations.
