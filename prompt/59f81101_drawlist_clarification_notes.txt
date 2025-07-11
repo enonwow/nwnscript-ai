@@ -1,0 +1,41 @@
+UUID: 59f81101
+
+Clarification — DrawList Usage and Behavior (Iteration 13)
+
+This entry documents clarifications provided by the user to refine the understanding of how DrawList works in NWScript NUI:
+
+==========================
+1. ResRef Source (NuiDrawListImage)
+==========================
+- ResRef must point to a valid resource present in the module or loaded through .hak files.
+- Some system-defined resources are also available from the engine.
+- In short: it must be a resolvable asset within the NWN content pipeline.
+
+==========================
+2. Dynamic Updates and Bindability
+==========================
+- Components that support `NuiBind` can be updated via `NuiSetBind` and read with `NuiGetBind`.
+- NuiDrawList itself does not support bind updates, except for the `jScissor` parameter.
+- Updating drawlist visuals requires full regeneration of layout (e.g., via NuiSetGroupLayout).
+
+==========================
+3. Interactivity in DrawList
+==========================
+- `NuiDrawListImage` accepts advanced parameters such as:
+  - jEnabled, jResRef, jPos, jAspect, jHAlign, jVAlign
+  - nOrder, nRender
+- Notably, `nRender` allows conditional rendering on interaction:
+  - 0 = Always
+  - 1 = Mouse Off
+  - 2 = Hover
+  - 3 = Left Click
+  - 4 = Right Click
+  - 5 = Middle Click
+
+This provides limited interactivity at the rendering level.
+
+==========================
+4. Technical Limits
+==========================
+- No explicit limits are confirmed, but user recommends minimizing number of elements for performance reasons.
+- Limits may exist but are undocumented or dependent on platform/mod size.

@@ -1,0 +1,46 @@
+UUID: ae8e780c
+
+JSON Function Reference — Corrected Knowledge (Iteration 10)
+
+Based on NWN Lexicon's full documentation, the following groups of JSON functions are supported in NWScript.
+
+==========================
+1. JSON Type Constructors
+==========================
+JsonObject, JsonArray, JsonString, JsonInt, JsonFloat, JsonBool, JsonNull
+
+==========================
+2. Object Manipulation
+==========================
+JsonObjectSet, JsonObjectSetInplace, JsonObjectGet, JsonObjectDel, JsonObjectKeys
+
+==========================
+3. Array Manipulation
+==========================
+JsonArraySet, JsonArrayGet, JsonArrayInsert, JsonArrayDel, JsonArrayTransform, JsonArrayGetRange
+
+==========================
+4. Parsing, Analysis, Debugging
+==========================
+JsonParse, JsonDump, JsonGetType, JsonGetLength, JsonGetError, JsonFind
+
+==========================
+5. Logical & Structural Operations
+==========================
+JsonMerge, JsonDiff, JsonPatch, JsonPointer, JsonSetOp
+
+==========================
+6. Type Conversion
+==========================
+ObjectToJson, JsonToObject, JsonToTemplate, TemplateToJson
+
+==========================
+7. Local & Campaign Storage
+==========================
+GetLocalJson, SetLocalJson, DeleteLocalJson
+GetCampaignJson, SetCampaignJson
+
+==========================
+8. Integration
+==========================
+SqlBindJson, SqlGetJson

@@ -1,0 +1,23 @@
+UUID: 9a2a3ec7
+
+Clarification — Dynamic Layout Construction and Live Updating (Iteration 14)
+
+This entry captures confirmed rules and caveats related to building and updating NUI layouts dynamically.
+
+==========================
+1. Conditional Layouts (pre-render logic)
+==========================
+- Conditional logic (e.g., if/else) can be used to decide which components are added to the layout.
+- This logic must be executed in NWScript *before* calling NuiOpen or NuiSetGroupLayout.
+- Once layout is sent to the client, its structure is static — cannot conditionally hide/show without re-sending new layout.
+
+==========================
+2. Live Updating Layouts via NuiSetGroupLayout
+==========================
+- NuiSetGroupLayout can be safely called multiple times while a window is open.
+- This is used to refresh parts of the GUI (e.g., live stats, selection).
+- However, excessive updates (e.g. once per second) may have performance consequences, especially in older engine builds.
+
+Guidance:
+- Use timed or event-driven updates only when justified by UX needs.
+- Avoid unnecessary redraws unless interactivity or visual feedback is expected.

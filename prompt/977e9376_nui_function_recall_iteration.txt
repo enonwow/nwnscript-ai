@@ -1,0 +1,65 @@
+UUID: 977e9376
+
+
+NUI Function Recall — Iteration Summary
+
+This document summarizes the current internal understanding of NUI and JSON-related functions used in NWScript,
+based on prior iterations, tutorials, and real project analysis.
+
+==========================
+1. JSON Object Construction
+==========================
+
+- Json_CreateObject
+- Json_CreateArray
+- Json_SetString
+- Json_SetInt
+- Json_SetFloat
+- Json_SetBool
+- Json_ArrayAdd
+- Json_Get* (rarely used in NUI layout creation)
+
+==========================
+2. GUI Lifecycle Management
+==========================
+
+- NuiOpen
+- NuiDestroy
+- NuiFindWindow
+- NuiSetGroupLayout
+
+==========================
+3. Bindings & Data Exchange
+==========================
+
+- NuiBind
+- NuiSetBind
+- NuiGetBind
+- NuiSetBindWatch
+- NuiSetUserData
+
+==========================
+4. Event Handling Functions
+==========================
+
+- NuiGetEventPlayer
+- NuiGetEventWindow
+- NuiGetEventElement
+- NuiGetEventType
+- NuiNotify
+
+==========================
+5. Layout & Components (JSON-defined)
+==========================
+
+- Widgets: textedit, text, button, checkbox, row, col, group, image, progress, slider, drawlist, select
+- Styles: margin, padding, width, height, tooltip, visible, enabled, horizAlign, vertAlign
+
+==========================
+Notes and Open Questions
+==========================
+
+- Group layouts (`NuiSetGroupLayout`) need deeper usage analysis.
+- Interplay between `userData`, `notify`, and dynamic updates.
+- Handling more complex event types (hover, focus, scroll).
+- DrawList usage (text, lines, arcs, images) still needs coverage.
